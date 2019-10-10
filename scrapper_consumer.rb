@@ -1,9 +1,12 @@
 require "kafka"
 
-kafka = Kafka.new(["kafka1:9092", "kafka2:9092"])
+kafka_servers = ( ENV['KAFKA_HOSTS'] || "localhost:9092" ).split(/;/)
+kafka_group_id = ENV['KAFKA_GROUP_ID'] || 'scraper-consumer-group'
+
+kafka = Kafka.new(kafka_servers)
 
 # Consumers with the same group id will form a Consumer Group together.
-consumer = kafka.consumer(group_id: "my-consumer")
+consumer = kafka.consumer(group_id: kafka_group_id)
 
 # It's possible to subscribe to multiple topics by calling `subscribe`
 # repeatedly.
