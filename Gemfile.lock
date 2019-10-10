@@ -1,0 +1,21 @@
+GEM
+  remote: https://rubygems.org/
+  specs:
+    digest-crc (0.4.1)
+    mini_portile2 (2.4.0)
+    nokogiri (1.10.4)
+      mini_portile2 (~> 2.4.0)
+    rack (2.0.7)
+    ruby-kafka (0.7.10)
+      digest-crc
+
+PLATFORMS
+  ruby
+
+DEPENDENCIES
+  nokogiri
+  rack
+  ruby-kafka
+
+BUNDLED WITH
+   1.17.3
